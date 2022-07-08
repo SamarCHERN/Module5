@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+{% if app.user %}
+  <h2>PRODUITS :</h2>
+
+<div class="container">
+
+    <div class="row">
+
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header">IPHONE</div>
+  <div class="card-body">
+    <h4 class="card-title">IPHONE PRO</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card bg-secondary mb-3" style="max-width: 20rem;">
+  <div class="card-header">APPLEWATCH</div>
+  <div class="card-body">
+    <h4 class="card-title">APPLEWATCH</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+  <div class="card-header">MAC</div>
+  <div class="card-body">
+    <h4 class="card-title">MACPRO</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+  <div class="card-header">JBL</div>
+  <div class="card-body">
+    <h4 class="card-title">CASQUE JBL</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+<div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+  <div class="card-header">EARPODS</div>
+  <div class="card-body">
+    <h4 class="card-title">EARPODS</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+
+<div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+  <div class="card-header">IPAD</div>
+  <div class="card-body">
+    <h4 class="card-title">IPAD</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+   
+                 
+        </div>
+    </div>
+   </div>
+ {% endif %}
+
+{% endblock %}
