@@ -61,11 +61,4 @@ public function usersList(UserRepository $users)
     ]);
 }
     
-//         /**
-//      * @Route("/connect", name="connect")
-//      */
-//     public function SignIn(): Response
-//      {
-//     return $this->render('login/signin.html.twig');
-//     }
  }

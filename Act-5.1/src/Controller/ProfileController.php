@@ -35,19 +35,7 @@ class ProfileController extends AbstractController
             'users'=>$users
         ]);
     }
- /**
-     * @Route("/double", name="profile")
-     */
-    public function user(): Response
-    
-    { 
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-      
-        return $this->render('profile/double.html.twig', [
-            'controller_name' => 'ProfileController',
-         
-        ]);
-    }
+
    /**
  * @Route("/access-denied", name="app_access_denied")
  */
