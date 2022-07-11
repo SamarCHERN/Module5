@@ -3,12 +3,21 @@ deux comptes sont predefinis:
 'ADMIN','admin@talan.com','123456'
 'samar','samar@talan.com','samar123'
 
-Pour installer le projet:
--composer install
--symfony console doctrine:database:create
--symfony console make:migration
--symfony console doctrine:migrations:migrate
--php bin/console server:run
+# On clone le dépot 
+git clone https://github.com/SamarCHERN/Module5.git
+
+# On installe les dépendances:
+composer install
+
+# on créé la base de données :
+symfony console doctrine:database:create
+
+# on éxucute les migrations:
+symfony console make:migration
+symfony console doctrine:migrations:migrate
+
+# On lance le serveur
+php bin/console server:run
 
 Pour exécuter le code voici les différentes routes :
 @Route ("/"): Home
