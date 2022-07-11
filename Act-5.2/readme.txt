@@ -23,5 +23,7 @@ symfony console doctrine:migrations:migrate
 # On lance le serveur
 php bin/console server:run
 
+Pour exécuter on suit routes suivants :
+/login :Aprés la connexion une page s'affiche contient un bouton qui affiche les informations de l'utilisateur connecté
 
 
