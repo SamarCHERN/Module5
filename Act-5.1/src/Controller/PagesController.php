@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
 
-class ProfileController extends AbstractController
+class PagesController extends AbstractController
 {
     
 
@@ -16,8 +16,8 @@ class ProfileController extends AbstractController
      */
     public function Profil(): Response
     {  $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        return $this->render('profile/index.html.twig', [
-            'controller_name' => 'ProfileController',
+        return $this->render('pages/index.html.twig', [
+            'controller_name' => 'PagesController',
         ]);
     }
     /**
@@ -27,12 +27,11 @@ class ProfileController extends AbstractController
     
     { 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $repos=$this->getDoctrine()->getRepository(User::class);
-        $users=$repos->findAll();
+       
       
-        return $this->render('profile/admin.html.twig', [
-            'controller_name' => 'ProfileController',
-            'users'=>$users
+        return $this->render('pages/admin.html.twig', [
+            'controller_name' => 'PagesController',
+        
         ]);
     }
 
@@ -47,4 +46,17 @@ public function accessDenied()
 
     return $this->redirectToRoute('app_login');
 }   
+ /**
+     * @Route("/useronly", name="admin&user")
+     */
+    public function user(): Response
+    
+    { 
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+      
+        return $this->render('pages/admin&user.html.twig', [
+            'controller_name' => 'PagesController',
+         
+        ]);
+    }
 }
