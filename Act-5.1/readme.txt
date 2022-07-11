@@ -26,6 +26,6 @@ Pour exécuter le code voici les différentes routes :
 @Route ("/logout"):pour se déconnecter
 @Route ("/index"): accessible uniquement après connexion
 @Route ("/admin"): accessible uniquement après connexion pour voir la liste des users
-@Route ("/user"): accessible uniquement après connexion affiche un élément différent selon si l’utilisateur possède le rôle ROLE_ADMIN ou non.
+@Route ("/useronly"): accessible uniquement après connexion affiche un élément différent selon si l’utilisateur possède le rôle ROLE_ADMIN ou non.
 
 
