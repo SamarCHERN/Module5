@@ -4,6 +4,7 @@ namespace App\Controller;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,14 +52,16 @@ class LoginController extends AbstractController
 
     ]);
     }
-/**
- * @Route("/utilisateurs", name="utilisateurs")
- */
-public function usersList(UserRepository $users)
-{
-    return $this->render('pages/users.html.twig', [
-        'users' => $users->findAll(),
-    ]);
-}
+    /**
+     * @Route("/ajax", name="ajax")
+     */
+    public function CurrentUser()
+    {
+       $user = $this->getUser();
+       return  $this->json([
+        'user' => $user->getFullName(),
+        'email' => $user->getEmail()
+       ]);
+    }
     
  }
