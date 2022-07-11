@@ -19,7 +19,7 @@ symfony console doctrine:migrations:migrate
 # On lance le serveur
 php bin/console server:run
 
-Pour exécuter le code voici les différentes routes :
+# Pour exécutre le code voici les différentes routes :
 @Route ("/"): Home
 @Route ("/Register"): pour créer un compte
 @Route ("/login"): pour se connecter:
