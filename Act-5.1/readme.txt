@@ -3,6 +3,12 @@ deux comptes sont predefinis:
 'ADMIN','admin@talan.com','123456'
 'samar','samar@talan.com','samar123'
 
+Pour installer le projet:
+-composer install
+-symfony console doctrine:database:create
+-symfony console make:migration
+-symfony console doctrine:migrations:migrate
+
 Pour exécuter le code voici les différentes routes :
 @Route ("/"): Home
 @Route ("/Register"): pour créer un compte
