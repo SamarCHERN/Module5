@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FileController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1> Web files</h1>
+    <p>/create/{file_name}</p>
+    <p>/write/{file_name}/{content}</p>
+    <p>/copy/{from}/{to}</p>
+    <p>/delete/{file_name}</p>
+    <h1>Fsi Files </h1>
+    <p>/create_file/{file_name}</p>
+    <p>/delete_file/{file_name}</p>
+    <p>/write_in_file/{file_name}/{content}/{offset?}</p>
+    <p>/read_file/{file_name}</p>
+    <p>/state</p>
+</div>
+{% endblock %}
