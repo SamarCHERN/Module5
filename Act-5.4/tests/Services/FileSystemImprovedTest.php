@@ -7,7 +7,7 @@ class FileSystemImprovedTest extends TestCase
     public function testState()
     {
     $file =new FileSystemImproved();
-    $this->assertSame(["File.txt","File2.txt"], $file->state());
+    $this->assertSame(["File.txt"], $file->state());
     }
 
     public function testCreate()
@@ -27,7 +27,7 @@ class FileSystemImprovedTest extends TestCase
         $file =new FileSystemImproved();
         $this->assertSame(true, $file->writeInFile("File", "Testing"));
     }
-    
+
     public function testDelete()
     {
         $file =new FileSystemImproved();
