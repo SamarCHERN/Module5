@@ -20,10 +20,10 @@ symfony console doctrine:migrations:migrate
 php bin/console server:run
 
 Pour exécuter le code voici les différentes routes :
-@Route ("/"): Home
+Pour exécuter le code voici les différentes routes :
+@Route ("/"): Home accessible par tout le monde
 @Route ("/Register"): pour créer un compte
 @Route ("/login"): pour se connecter:
 @Route ("/logout"):pour se déconnecter
-@Route ("/index"): accessible uniquement après connexion
-@Route ("/admin"): accessible uniquement après connexion pour voir la liste des users
-@Route ("/useronly"): accessible uniquement après connexion affiche un élément différent selon si l’utilisateur possède le rôle ROLE_ADMIN ou non.
+@Route ("/index"): accessible à l'utlisateur et l'admin après connexion, l'admin a un élément différent et le reste de la page est identique 
+@Route ("/admin"): accessible uniquement à l'admin après connexion 

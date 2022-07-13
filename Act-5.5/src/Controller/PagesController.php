@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\User;
+use Doctrine\ORM\QueryBuilder;
 use Omines\DataTablesBundle\Adapter\ArrayAdapter;
+use Omines\DataTablesBundle\Adapter\Doctrine\ORM\SearchCriteriaProvider;
 use Omines\DataTablesBundle\Column\TextColumn;
 use Omines\DataTablesBundle\DataTableFactory;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +27,9 @@ class PagesController extends AbstractController
             'controller_name' => 'PagesController',
         ]);
     }
+
+
+    
     /**
      * @Route("/admin", name="admin")
      */
@@ -34,10 +39,12 @@ class PagesController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $table = $dataTableFactory->create()
-        ->add('userName', TextColumn::class)
-        ->add('Email', TextColumn::class)
+        ->add('userName', TextColumn::class,['label' => 'User name', 'className' => 'bold'])
+        ->add('Email', TextColumn::class,['label' => 'Email', 'className' => 'bold'])
+        ->add('Action', TextColumn::class,['label' => 'Action', 'className' => 'bold'])
         ->createAdapter(ORMAdapter::class, [
             'entity' => User::class,
+
         ])
         ->handleRequest($request);
 
@@ -50,6 +57,8 @@ class PagesController extends AbstractController
         
         ]);
     }
+
+
 
    /**
  * @Route("/access-denied", name="app_access_denied")
