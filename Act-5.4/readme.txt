@@ -9,19 +9,19 @@ git clone https://github.com/SamarCHERN/Module5.git
 # On installe les dépendances:
 composer install
 
-# Lancer la cammande de testing :
+# Lancer la cammande de testing(Pour tester tous les méthodes à la fois)  :
 vendor/bin/phpunit
 
-Pour tester les méthodes mentionnés on a exécuté les méthodes suivants(on peut tester tous ou bien une par une):
+Pour tester les méthodes mentionnés(une par une) on exécute les commandes suivants:
 ***State***
-Method testState: $this->assertSame(["File.txt"], $file->state());
+vendor/bin/phpunit --filter testState tests/Service/FileSystemImprovedTest.php
 ***createFile***
-Method testCreate: $this->assertSame(["File.txt","File2.txt"], $file->createFile("File2"));
+vendor/bin/phpunit --filter testCreate tests/Service/FileSystemImprovedTest.php
 ***readFile***
-Method testRead: $this->assertSame("CherniSamar", $file->readFile("File"));
-***readFile***
-Method testWrite: $this->assertSame(true, $file->writeInFile("File", "Testing"));
+vendor/bin/phpunit --filter testRead tests/Service/FileSystemImprovedTest.php
+***writeInFile***
+vendor/bin/phpunit --filter testWrite tests/Service/FileSystemImprovedTest.php
 ***deleteFile***
-Method testDelete: $this->assertSame(true, $file->deleteFile("File2"));
+vendor/bin/phpunit --filter testDelete tests/Service/FileSystemImprovedTest.php
 
 
