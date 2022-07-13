@@ -13,7 +13,14 @@
   <h2>PRODUITS :</h2>
 
 <div class="container">
-
+  {% if is_granted('ROLE_ADMIN')%}
+    <h1>ADMIN manage your products</h1>
+    <p> Are you looking for the best eCommerce Admin Panel Template Free for your web application? Well,
+    don’t look further. Here you’ll get awesome admin templates for your eCommerce web app. Here you can 
+    find the admin panel template for an eCommerce website that you can download for free. Before we dive
+    into the list of best admin templates for eCommerce let’s know what is eCommerce and why it is
+    important in these current times.</p>
+    {% endif %}
     <div class="row">
 
 <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">

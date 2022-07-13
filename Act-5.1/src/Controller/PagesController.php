@@ -46,17 +46,17 @@ public function accessDenied()
 
     return $this->redirectToRoute('app_login');
 }   
- /**
-     * @Route("/useronly", name="admin&user")
-     */
-    public function user(): Response
+//  /**
+//      * @Route("/useronly", name="admin&user")
+//      */
+//     public function user(): Response
     
-    { 
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+//     { 
+//         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
       
-        return $this->render('pages/admin&user.html.twig', [
-            'controller_name' => 'PagesController',
+//         return $this->render('pages/admin&user.html.twig', [
+//             'controller_name' => 'PagesController',
          
-        ]);
-    }
+//         ]);
+//     }
 }

@@ -22,38 +22,40 @@
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary  {{ app.session.flashbag.peek('success')|length > 0 ? '' : 'mb-5' }}">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                      <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/"><strong>Home</strong></a>
                           </li>
+                            {% if app.user %}
                          <li class="nav-item  active">
-                    <a class="nav-link" href="/useronly">Admin Products</a>
+                    <a class="nav-link" href="/index"><strong>Products</strong></a>
                     </li>
-                    </li>
-                         <li class="nav-item  active">
-                    <a class="nav-link" href="/index">Products</a>
-                    </li>
+
+        {% if app.user.email =="admin@talan.com" %}
                     <li class="nav-item  active">
-                    <a class="nav-link" href="{{ path('admin') }}">Admin</a>
+                    <a class="nav-link" href="{{ path('admin') }}"><strong>Admin</strong></a>
                     </li>
-                  
-                      <li class="nav-item">
-                        <a class="nav-link" href="/Register">SignUp</a>
+                    {% endif %}  
+                  {% endif %}  
+
+</ul>
+    <ul class="navbar-nav ml-auto">
+                {% if app.user %}
+                 
+                    <li class="nav-item  ">
+                    <a class="nav-link" href="{{ path('app_logout') }}"><strong>LogOut</strong></a>
+                    </li>
+                {% else %}      
+                     <li class="nav-item">
+                        <a class="nav-link" href="/Register"><strong>SignUp</strong></a>
                     </li>
                            <li class="nav-item  ">
-                        <a class="nav-link" href="{{ path('app_login') }}">LogIn</a>
-                    </li>
-                {% if app.user %}
-                    <li class="nav-item  ">
-                    <a class="nav-link" href="{{ path('app_logout') }}">LogOut</a>
-                    </li>
-                                    
-                {% endif %}  
+                        <a class="nav-link" href="{{ path('app_login') }}"><strong>LogIn</strong></a>
+                    </li>   
+                      
+                {% endif %} 
+    </ul>  
             </div>
         </nav>
 

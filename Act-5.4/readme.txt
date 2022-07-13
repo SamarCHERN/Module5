@@ -9,6 +9,8 @@ git clone https://github.com/SamarCHERN/Module5.git
 # On installe les dépendances:
 composer install
 
+# Changer le pat
+
 # Lancer la cammande de testing(Pour tester tous les méthodes à la fois)  :
 vendor/bin/phpunit
 
