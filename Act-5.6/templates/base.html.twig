@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.css"/>
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+           <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary  {{ app.session.flashbag.peek('success')|length > 0 ? '' : 'mb-5' }}">
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="/"><strong>Home</strong></a>
+                          </li>
+                            {% if app.user %}
+                         <li class="nav-item  active">
+                    <a class="nav-link" href="/index"><strong>Products</strong></a>
+                    </li>
+
+                    {% if app.user.email =="admin@talan.com" %}
+                    <li class="nav-item  active">
+                    <a class="nav-link" href="{{ path('admin') }}"><strong>Admin</strong></a>
+                    </li>
+                    {% endif %}  
+                  {% endif %}  
+
+        </ul>
+    <ul class="navbar-nav ml-auto">
+                {% if app.user %}
+                 
+                    <li class="nav-item  ">
+                    <a class="nav-link" href="{{ path('app_logout') }}"><strong>LogOut</strong></a>
+                    </li>
+                {% else %}      
+                     <li class="nav-item">
+                        <a class="nav-link" href="/Register"><strong>SignUp</strong></a>
+                    </li>
+                           <li class="nav-item  ">
+                        <a class="nav-link" href="{{ path('app_login') }}"><strong>LogIn</strong></a>
+                    </li>   
+                      
+                {% endif %} 
+    </ul>  
+            </div>
+        </nav>
+
+        <div class="container">
+          
+        {% block body %}
+        {% endblock %}
+   </div>
+
+    </body>
+   
+</html>
