@@ -1,6 +1,6 @@
 Leçon 5.6 : Commandes Dans Symfony
 
-Envoyer un email tous aux utilisateurs (et non administrateurs)
+Envoyer un email aux utilisateurs (et non administrateurs)
 
 ***Pour installer le projet***:
 # On clone le dépot 
@@ -19,6 +19,6 @@ symfony console doctrine:migrations:migrate
 # On lance le serveur
 php bin/console server:run
 
-Pour tester le code d'email:
+***Pour tester le code d'email:***
 # lancer la commande suivant :php bin/console app:SendEmail
 Le résultat sera affiché sur mailtrap
