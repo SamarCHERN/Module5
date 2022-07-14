@@ -19,6 +19,8 @@ symfony console doctrine:migrations:migrate
 # On lance le serveur
 php bin/console server:run
 
+# Ajouter MAILER_DSN dans .env
+
 ***Pour tester le code d'email:***
 # lancer la commande suivant :php bin/console app:SendEmail
 Le résultat sera affiché sur mailtrap

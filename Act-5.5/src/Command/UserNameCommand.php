@@ -12,12 +12,10 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
-class CreateUserCommand extends Command
+class UserNameCommand extends Command
 {
-    protected static $defaultName = 'app:SendEmail';
+    protected static $defaultName = 'UserNameCommande';
     protected static $defaultDescription = 'Add a short description for your command';
-    private $userRepository;
-    private $mailer;
     public function __construct(UserRepository $userRepository, MailerInterface $mailer )
     {
         parent::__construct(null);
@@ -36,14 +34,14 @@ class CreateUserCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
-
-        $users = $this->userRepository
-        ->findByUsers('admin@talan.com');
-        $io->progressStart(count($users));
-        foreach ($users as $user) {
-            $io->progressAdvance();
-            $Address=$user->getEmail();
+        $arg1 = $input->getArgument('arg1');
+        $user = $this->userRepository;
+        if ($arg1) {
+            $io->note(sprintf('You passed an argument: %s', $arg1));
+            $user->findOneByeEmail('samar@talan.com');
             $Name=$user->getUserName();
+            
+            $Address=$user->getEmail();
             $email = (new Email())
             ->from('admin@talan.com')
             ->to($Address)
@@ -53,8 +51,10 @@ class CreateUserCommand extends Command
              sleep(10); 
              $this->mailer->send($email);
         }
-        $io->progressFinish();
-        $io->success(' Email sent to users!');
-        return 0 ;
+        
+
+        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+
+        return 0;
     }
 }
